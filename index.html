@@ -722,13 +722,20 @@
   let tripType='vacation';
   function setTrip(t){
     tripType=t;
-    document.getElementById('vacBtn').classList.toggle('active',t==='vacation');
-    document.getElementById('bizBtn').classList.toggle('active',t==='business');
+    const vb=document.getElementById('vacBtn');
+    const bb=document.getElementById('bizBtn');
+    // update inline-styled buttons directly
+    vb.style.background = t==='vacation' ? 'var(--teal)' : 'rgba(255,255,255,.07)';
+    vb.style.color      = t==='vacation' ? 'var(--ink)'  : '#cbd9e6';
+    bb.style.background = t==='business' ? 'var(--teal)' : 'rgba(255,255,255,.07)';
+    bb.style.color      = t==='business' ? 'var(--ink)'  : '#cbd9e6';
     // reflect on During Stay screen
-    document.getElementById('vacContent').classList.toggle('hide',t!=='vacation');
-    document.getElementById('bizContent').classList.toggle('hide',t!=='business');
-    const h=document.getElementById('duringTitle');
-    h.innerHTML=t==='vacation'?'Make the most of <em>Springfield.</em>':'Work smart, <em>then unwind.</em>';
+    document.getElementById('vacContent').classList.toggle('hide', t!=='vacation');
+    document.getElementById('bizContent').classList.toggle('hide', t!=='business');
+    document.getElementById('duringTitle').innerHTML =
+      t==='vacation' ? 'Make the most of <em>Springfield.</em>' : 'Work smart, <em>then unwind.</em>';
+    document.getElementById('duringGreet').textContent =
+      t==='vacation' ? 'During Stay · Day 3 of 8' : 'Business Stay · Day 3 of 8';
   }
   window.setTrip=setTrip;
 

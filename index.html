@@ -167,6 +167,58 @@
   .bottomNav .nav{display:flex;flex-direction:column;align-items:center;gap:3px;color:#7a96b0;font-size:10.5px;font-weight:600;cursor:pointer;padding:7px 4px;border-radius:10px}
   .bottomNav .nav.active{color:var(--teal)}
   .bottomNav .nav svg{width:18px;height:18px}
+  /* ── Screen 6: Info hub ── */
+  .sInfo .iHead{padding:0 20px 14px}
+  .sInfo .iHead .iTitle{font-size:24px;font-weight:700;margin:8px 0 4px}
+  .sInfo .iHead .iSub{font-size:13px;color:#a9c2d8}
+  .sInfo .body{flex:1;overflow-y:auto;padding:4px 20px 16px;scrollbar-width:none}
+  .sInfo .body::-webkit-scrollbar{display:none}
+  .sInfo .phaseHdr{display:flex;align-items:center;gap:10px;margin:16px 0 10px}
+  .sInfo .phaseHdr .badge{background:rgba(62,217,204,.2);border:1px solid rgba(62,217,204,.35);color:var(--teal);font-size:10px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
+  .sInfo .phaseHdr .line{flex:1;height:1px;background:rgba(255,255,255,.10)}
+  .sInfo .topicGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+  .sInfo .topic{background:rgba(255,255,255,.09);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px;cursor:pointer;display:flex;flex-direction:column;gap:5px;transition:background .15s}
+  .sInfo .topic:hover{background:rgba(255,255,255,.16)}
+  .sInfo .topic .tIco{font-size:20px;line-height:1}
+  .sInfo .topic .tLbl{font-size:12.5px;font-weight:700;color:#fff;line-height:1.3}
+  .sInfo .topic .tSub{font-size:11px;color:#a9c2d8}
+
+  /* ── Screen 7: AI Assistant ── */
+  .sAI .aiHead{padding:0 20px 10px;display:flex;align-items:center;gap:12px}
+  .sAI .aiHead .aiAv{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#2bbab0);display:flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 40px}
+  .sAI .aiHead .aiInfo .aiName{font-size:15px;font-weight:700;color:#fff}
+  .sAI .aiHead .aiInfo .aiSub{font-size:11.5px;color:#a9c2d8}
+  .sAI .aiHead .exportBtn{margin-left:auto;background:rgba(62,217,204,.18);border:1px solid rgba(62,217,204,.4);color:var(--teal);font-size:11.5px;font-weight:700;padding:7px 11px;border-radius:10px;cursor:pointer;white-space:nowrap}
+  .sAI .chatBody{flex:1;overflow-y:auto;padding:8px 16px 10px;display:flex;flex-direction:column;gap:10px;scrollbar-width:none}
+  .sAI .chatBody::-webkit-scrollbar{display:none}
+  .msg{max-width:82%;display:flex;flex-direction:column;gap:3px}
+  .msg.ai{align-self:flex-start}
+  .msg.user{align-self:flex-end;align-items:flex-end}
+  .msg .bubble{padding:10px 13px;border-radius:18px;font-size:13.5px;line-height:1.45}
+  .msg.ai .bubble{background:rgba(255,255,255,.12);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);color:#fff;border-bottom-left-radius:5px}
+  .msg.user .bubble{background:var(--teal);color:var(--ink);font-weight:600;border-bottom-right-radius:5px}
+  .msg .ts{font-size:10.5px;color:#6a8499;padding:0 4px}
+  .sAI .suggestRow{display:flex;gap:6px;overflow-x:auto;padding:4px 16px 8px;scrollbar-width:none;flex-shrink:0}
+  .sAI .suggestRow::-webkit-scrollbar{display:none}
+  .sAI .suggest{flex:0 0 auto;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);color:#dbe6f0;font-size:12px;font-weight:600;padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .sAI .suggest:hover{background:rgba(255,255,255,.18)}
+  .sAI .chatInput{padding:8px 16px 14px;display:flex;gap:8px;align-items:flex-end;background:linear-gradient(0deg,rgba(2,10,22,.9) 60%,transparent);flex-shrink:0}
+  .sAI .chatInput textarea{flex:1;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:14px;color:#fff;font-size:14px;font-family:inherit;padding:10px 12px;resize:none;outline:none;min-height:40px;max-height:100px;overflow-y:auto}
+  .sAI .chatInput textarea::placeholder{color:#6a8499}
+  .sAI .chatInput textarea:focus{border-color:var(--teal)}
+  .sAI .chatInput .sendBtn{width:40px;height:40px;border-radius:50%;background:var(--teal);border:0;color:var(--ink);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 40px}
+  /* Export modal */
+  .exportModal{position:absolute;inset:0;background:rgba(2,10,22,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;display:flex;flex-direction:column;padding:20px}
+  .exportModal .emHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .exportModal .emTitle{font-size:17px;font-weight:700;color:#fff}
+  .exportModal .emClose{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px}
+  .exportModal .emBox{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:14px;overflow-y:auto;font-size:12px;color:#dbe6f0;line-height:1.6;white-space:pre-wrap;font-family:monospace;scrollbar-width:none}
+  .exportModal .emBox::-webkit-scrollbar{display:none}
+  .exportModal .emActions{display:flex;gap:8px;margin-top:12px}
+  .exportModal .emActions button{flex:1;padding:12px;border-radius:12px;border:0;font-weight:700;font-size:13px;cursor:pointer}
+  .exportModal .emActions .copy{background:var(--teal);color:var(--ink)}
+  .exportModal .emActions .close2{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff}
+
   .hide{display:none!important}
   @media(max-width:900px){.stage{gap:16px}.phone{width:360px;height:760px}}
   @media(max-width:420px){body{padding:10px 0 56px}.phone{width:100vw;max-width:100%;height:100vh;border-radius:0;padding:0;box-shadow:none}.phone::before{display:none}.screen{border-radius:0}}
@@ -181,6 +233,8 @@
     <button data-screen="3">3 · Before visit</button>
     <button data-screen="4">4 · Arrival</button>
     <button data-screen="5">5 · During Stay</button>
+    <button data-screen="6">6 · Info</button>
+    <button data-screen="7">7 · Assistant</button>
   </div>
   <div class="controls">
     <label><input type="checkbox" id="otaToggle"> OTA source</label>
@@ -224,9 +278,9 @@
     </div>
     <div class="bottomNav">
       <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
+      <div class="nav" onclick="show(6)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
       <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1 4h10l1-4M5 6l1.5 13a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.7L19 6z"/></svg><span>Store</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
+      <div class="nav" onclick="show(7)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
     </div>
   </div></div>
 </div>
@@ -368,9 +422,9 @@
     </div>
     <div class="bottomNav">
       <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
+      <div class="nav" onclick="show(6)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
       <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1 4h10l1-4M5 6l1.5 13a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.7L19 6z"/></svg><span>Store</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
+      <div class="nav" onclick="show(7)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
     </div>
   </div></div>
 </div>
@@ -428,9 +482,9 @@
     </div>
     <div class="bottomNav">
       <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
+      <div class="nav" onclick="show(6)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
       <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1 4h10l1-4M5 6l1.5 13a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.7L19 6z"/></svg><span>Store</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
+      <div class="nav" onclick="show(7)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
     </div>
   </div></div>
 </div>
@@ -491,9 +545,155 @@
     </div>
     <div class="bottomNav">
       <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
+      <div class="nav" onclick="show(6)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
       <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1 4h10l1-4M5 6l1.5 13a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.7L19 6z"/></svg><span>Store</span></div>
-      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
+      <div class="nav" onclick="show(7)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ═══════════════════════ SCREEN 6: INFO HUB ═══════════════════════ -->
+<div class="phoneWrap hide" data-screen="6">
+  <div class="phoneLabel">Screen 6 · Info — all topics</div>
+  <div class="phone"><div class="screen sInfo">
+    <div class="statusBar"><span>9:41</span><span>●●● ▮▮▮</span></div>
+    <div class="iHead">
+      <div class="iTitle">All topics</div>
+      <div class="iSub">Everything about your stay, in one place.</div>
+    </div>
+    <div class="body">
+
+      <div class="phaseHdr"><div class="badge">Before</div><div class="line"></div></div>
+      <div class="topicGrid">
+        <div class="topic"><div class="tIco">🧳</div><div class="tLbl">Packing list</div><div class="tSub">12 coastal essentials</div></div>
+        <div class="topic"><div class="tIco">📄</div><div class="tLbl">Travel documents</div><div class="tSub">Passport, booking ref</div></div>
+        <div class="topic"><div class="tIco">✈️</div><div class="tLbl">Getting here</div><div class="tSub">Flights & transfers</div></div>
+        <div class="topic"><div class="tIco">🛒</div><div class="tLbl">Grocery pre-order</div><div class="tSub">Delivered on arrival</div></div>
+        <div class="topic"><div class="tIco">⛅</div><div class="tLbl">Weather forecast</div><div class="tSub">Dec 2–10 outlook</div></div>
+        <div class="topic"><div class="tIco">💊</div><div class="tLbl">Health & safety</div><div class="tSub">Nearest clinic, pharmacy</div></div>
+      </div>
+
+      <div class="phaseHdr"><div class="badge">Arrival</div><div class="line"></div></div>
+      <div class="topicGrid">
+        <div class="topic"><div class="tIco">🗺️</div><div class="tLbl">Getting to the location</div><div class="tSub">From PDX, bus, taxi</div></div>
+        <div class="topic"><div class="tIco">🚲</div><div class="tLbl">Local transport</div><div class="tSub">Bikes, bus, parking</div></div>
+        <div class="topic"><div class="tIco">🔑</div><div class="tLbl">Property access</div><div class="tSub">Lockbox code 4821</div></div>
+        <div class="topic"><div class="tIco">🏠</div><div class="tLbl">About the home</div><div class="tSub">3 bed · 2 bath · deck</div></div>
+        <div class="topic"><div class="tIco">📶</div><div class="tLbl">Wi-Fi access</div><div class="tSub">SunsetVilla_5G</div></div>
+        <div class="topic"><div class="tIco">🍳</div><div class="tLbl">Kitchen & appliances</div><div class="tSub">Gas range, Nespresso</div></div>
+      </div>
+
+      <div class="phaseHdr"><div class="badge">During Stay</div><div class="line"></div></div>
+      <div class="topicGrid">
+        <div class="topic"><div class="tIco">🌊</div><div class="tLbl">Beach & outdoors</div><div class="tSub">Cove walk, volleyball</div></div>
+        <div class="topic"><div class="tIco">🎟️</div><div class="tLbl">Experiences (Viator)</div><div class="tSub">Kayak, lighthouse, cruise</div></div>
+        <div class="topic"><div class="tIco">🍽️</div><div class="tLbl">Restaurants & bars</div><div class="tSub">Host picks nearby</div></div>
+        <div class="topic"><div class="tIco">💻</div><div class="tLbl">Work-friendly spots</div><div class="tSub">Coworking, fast Wi-Fi</div></div>
+        <div class="topic"><div class="tIco">🏥</div><div class="tLbl">Emergency contacts</div><div class="tSub">911 · host on-call</div></div>
+        <div class="topic"><div class="tIco">🛍️</div><div class="tLbl">Shopping & markets</div><div class="tSub">Safeway 0.8 mi</div></div>
+      </div>
+
+      <div class="phaseHdr"><div class="badge">Checkout</div><div class="line"></div></div>
+      <div class="topicGrid">
+        <div class="topic"><div class="tIco">🕙</div><div class="tLbl">Checkout time</div><div class="tSub">11:00 AM · Dec 10</div></div>
+        <div class="topic"><div class="tIco">⏰</div><div class="tLbl">Late checkout</div><div class="tSub">Request via Assistant</div></div>
+        <div class="topic"><div class="tIco">✅</div><div class="tLbl">Checkout checklist</div><div class="tSub">Keys, windows, bins</div></div>
+        <div class="topic"><div class="tIco">🚗</div><div class="tLbl">Getting home</div><div class="tSub">Return flights, taxi</div></div>
+      </div>
+
+      <div class="phaseHdr"><div class="badge">After</div><div class="line"></div></div>
+      <div class="topicGrid">
+        <div class="topic"><div class="tIco">⭐</div><div class="tLbl">Leave a review</div><div class="tSub">Share your experience</div></div>
+        <div class="topic"><div class="tIco">📤</div><div class="tLbl">Export Stay Memory</div><div class="tSub">For Gemini / ChatGPT</div></div>
+        <div class="topic"><div class="tIco">📣</div><div class="tLbl">Refer a host</div><div class="tSub">Get them set up in 3 min</div></div>
+        <div class="topic"><div class="tIco">💬</div><div class="tLbl">Stay in touch</div><div class="tSub">Follow Touch Stay</div></div>
+      </div>
+    </div>
+    <div class="bottomNav">
+      <div class="nav" onclick="show(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></div>
+      <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
+      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1 4h10l1-4M5 6l1.5 13a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.7L19 6z"/></svg><span>Store</span></div>
+      <div class="nav" onclick="show(7)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ═══════════════════════ SCREEN 7: AI ASSISTANT ═══════════════════════ -->
+<div class="phoneWrap hide" data-screen="7">
+  <div class="phoneLabel">Screen 7 · AI Assistant</div>
+  <div class="phone"><div class="screen sAI" style="position:relative">
+    <div class="statusBar"><span>9:41</span><span>●●● ▮▮▮</span></div>
+    <div class="aiHead">
+      <div class="aiAv">✦</div>
+      <div class="aiInfo">
+        <div class="aiName">Stay Assistant</div>
+        <div class="aiSub">Powered by Touch Stay · always on</div>
+      </div>
+      <button class="exportBtn" onclick="openExport()">⬆ Export Stay Memory</button>
+    </div>
+
+    <div class="chatBody" id="chatBody">
+      <div class="msg ai">
+        <div class="bubble">Hi Catalin! 👋 I'm your Stay Assistant for <b>Lovely Sunsets Villa</b>.<br><br>I can help you with arrival info, local recommendations, things to do, or anything about your stay. What would you like to know?</div>
+        <div class="ts">9:32 AM</div>
+      </div>
+      <div class="msg user">
+        <div class="bubble">What's the Wi-Fi password?</div>
+        <div class="ts">9:33 AM</div>
+      </div>
+      <div class="msg ai">
+        <div class="bubble">📶 <b>Network:</b> SunsetVilla_5G<br><b>Password:</b> beachlife2026<br><br>You'll get up to 250 Mbps — plenty for video calls. There's also a dedicated work desk in Bedroom 1 if you need a quiet spot.</div>
+        <div class="ts">9:33 AM</div>
+      </div>
+      <div class="msg user">
+        <div class="bubble">Any good dinner spots tonight? We're on vacation, something with a view.</div>
+        <div class="ts">9:35 AM</div>
+      </div>
+      <div class="msg ai">
+        <div class="bubble">Great choice — here are John's top picks for a vacation dinner with a view:<br><br>🌊 <b>Marlow's Coastal</b> — seafood & cocktails, ocean-facing terrace, ★4.6 (1.2 mi)<br>🍷 <b>Wine & Coastal Gastronomy</b> — Viator experience, guided tasting dinner, ★4.6 (~$75/person)<br>🐟 <b>The Grand Table</b> — upscale catch of the day, sunset views, ★4.8<br><br>Want me to open a map or suggest something more casual?</div>
+        <div class="ts">9:35 AM</div>
+      </div>
+      <div class="msg user">
+        <div class="bubble">Can I get a late checkout? We leave at 2pm.</div>
+        <div class="ts">9:38 AM</div>
+      </div>
+      <div class="msg ai">
+        <div class="bubble">I've sent a late checkout request to John for <b>2:00 PM on Dec 10</b>. Standard checkout is 11 AM, so this is a 3-hour extension — subject to his availability.<br><br>You'll get a confirmation in this chat. Anything else I can help with?</div>
+        <div class="ts">9:38 AM</div>
+      </div>
+    </div>
+
+    <div class="suggestRow">
+      <div class="suggest" onclick="sendSuggest(this)">🗺️ How do I get to the beach?</div>
+      <div class="suggest" onclick="sendSuggest(this)">🚌 Best way to the city centre?</div>
+      <div class="suggest" onclick="sendSuggest(this)">🎟️ Book a Viator experience</div>
+      <div class="suggest" onclick="sendSuggest(this)">🕙 What time is checkout?</div>
+      <div class="suggest" onclick="sendSuggest(this)">🛒 Nearest supermarket?</div>
+    </div>
+
+    <div class="chatInput">
+      <textarea id="chatTxt" placeholder="Ask anything about your stay…" rows="1" onkeydown="handleKey(event)"></textarea>
+      <button class="sendBtn" onclick="sendMsg()">↑</button>
+    </div>
+
+    <!-- Export modal -->
+    <div class="exportModal hide" id="exportModal">
+      <div class="emHead">
+        <div class="emTitle">⬆ Stay Memory Export</div>
+        <button class="emClose" onclick="closeExport()">✕</button>
+      </div>
+      <div class="emBox" id="exportBox"></div>
+      <div class="emActions">
+        <button class="copy" onclick="copyExport()">Copy to clipboard</button>
+        <button class="close2" onclick="closeExport()">Close</button>
+      </div>
+    </div>
+
+    <div class="bottomNav">
+      <div class="nav" onclick="show(1)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></div>
+      <div class="nav" onclick="show(6)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span>Info</span></div>
+      <div class="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1 4h10l1-4M5 6l1.5 13a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.7L19 6z"/></svg><span>Store</span></div>
+      <div class="nav active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><span>Assistant</span></div>
     </div>
   </div></div>
 </div>
@@ -583,6 +783,113 @@
     renderOthers();
     closeAdd();
   });
+
+  // ── AI chat ──
+  const aiReplies = {
+    'beach':  '🏖️ The beach is a 10-minute walk from the villa. Head down Oak Street, turn left at the lighthouse sign. Sunset Cove is the prettiest spot — best around 6pm.',
+    'transport': '🚌 LTD Bus Route 51 stops on the corner every 15 minutes. Lime e-bikes are also docked 5 min away. Uber/Lyft usually arrive in under 5 minutes.',
+    'viator': '🎟️ Top Viator experiences near Springfield:\n• Whale watching cruise — $58 · ★4.9\n• Kayak sunset paddle — $39 · ★4.8\n• Lighthouse & cliffs tour — $24 · ★4.7\n\nWant me to open the booking link?',
+    'checkout': '🕙 Checkout is at 11:00 AM on Tuesday, Dec 10. Need a later time? I can request a late checkout from John for you.',
+    'supermarket': '🛒 Safeway is the closest — just 0.8 miles away, open until 11pm. There\'s also a farmers\' market on Saturday mornings two blocks east.',
+    'default': '✦ Great question! Let me check the villa guide... John has detailed info on this. Can you tell me a bit more so I can give you the most relevant answer?'
+  };
+  function aiReply(text) {
+    const lower = text.toLowerCase();
+    if (lower.includes('beach') || lower.includes('sea') || lower.includes('ocean')) return aiReplies.beach;
+    if (lower.includes('transport') || lower.includes('bus') || lower.includes('city') || lower.includes('uber')) return aiReplies.transport;
+    if (lower.includes('viator') || lower.includes('experience') || lower.includes('tour') || lower.includes('activity')) return aiReplies.viator;
+    if (lower.includes('checkout') || lower.includes('check out') || lower.includes('leave')) return aiReplies.checkout;
+    if (lower.includes('supermarket') || lower.includes('grocery') || lower.includes('shop') || lower.includes('food')) return aiReplies.supermarket;
+    return aiReplies.default;
+  }
+  function addMsg(text, who, time) {
+    const cb = document.getElementById('chatBody');
+    const now = time || new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    const div = document.createElement('div');
+    div.className = `msg ${who}`;
+    div.innerHTML = `<div class="bubble">${text.replace(/\n/g,'<br>')}</div><div class="ts">${now}</div>`;
+    cb.appendChild(div);
+    cb.scrollTop = cb.scrollHeight;
+  }
+  function sendMsg() {
+    const ta = document.getElementById('chatTxt');
+    const txt = ta.value.trim(); if(!txt) return;
+    addMsg(txt, 'user');
+    ta.value = ''; ta.style.height = 'auto';
+    setTimeout(()=> addMsg(aiReply(txt), 'ai'), 620);
+  }
+  function handleKey(e) {
+    if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendMsg(); }
+  }
+  function sendSuggest(el) {
+    const txt = el.textContent.replace(/^[^\s]+\s/,'').trim();
+    document.getElementById('chatTxt').value = txt;
+    sendMsg();
+  }
+  window.sendMsg=sendMsg; window.handleKey=handleKey; window.sendSuggest=sendSuggest;
+
+  // ── Export Stay Memory ──
+  function buildExport() {
+    const msgs = [...document.querySelectorAll('#chatBody .msg')].map(m=>{
+      const who = m.classList.contains('user') ? 'Guest' : 'Assistant';
+      return `[${who}]: ${m.querySelector('.bubble').innerText}`;
+    }).join('\n\n');
+    return `TOUCH STAY — STAY MEMORY EXPORT
+Generated: ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROPERTY: Lovely Sunsets Villa, Springfield, OR
+GUEST: Catalin Hritcu
+STAY: 2 Dec 2026 → 10 Dec 2026 (8 nights)
+HOST: John Appleseed
+TRIP TYPE: Vacation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GUEST EXPERIENCE SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This stay was powered by Touch Stay — the world's leading digital guidebook platform for short-term rentals and hospitality. Touch Stay provided a fully personalised, timeline-driven guest experience including pre-arrival preparation, arrival guidance, during-stay recommendations, and AI-assisted support.
+
+Key highlights of this Touch Stay-powered stay:
+• Personalised timeline matched to check-in and check-out dates
+• Contextual recommendations tailored to vacation mode
+• AI Assistant available 24/7 for instant property and local answers
+• Viator experience integration for local activities
+• Seamless late checkout request handling
+
+Touch Stay transformed this stay from a simple booking into a curated, memorable guest journey.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ASSISTANT CONVERSATION LOG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${msgs}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOW TO USE THIS EXPORT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Paste this into Gemini, ChatGPT, or any AI assistant and say:
+"Based on my recent stay experience below, help me [plan my next trip / write a review / find similar properties]."
+
+The AI will have full context of your stay, preferences, and the support Touch Stay provided.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Powered by Touch Stay · www.touchstay.com
+`;
+  }
+  function openExport() {
+    document.getElementById('exportBox').textContent = buildExport();
+    document.getElementById('exportModal').classList.remove('hide');
+  }
+  function closeExport() {
+    document.getElementById('exportModal').classList.add('hide');
+  }
+  function copyExport() {
+    navigator.clipboard.writeText(document.getElementById('exportBox').textContent).then(()=>{
+      const btn = document.querySelector('.exportModal .copy');
+      btn.textContent = '✓ Copied!';
+      setTimeout(()=>btn.textContent='Copy to clipboard', 2000);
+    });
+  }
+  window.openExport=openExport; window.closeExport=closeExport; window.copyExport=copyExport;
 
   // ── Prep grid toggles ──
   document.querySelectorAll('.prepGrid').forEach(g=>{

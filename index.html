@@ -239,43 +239,123 @@
   body.noTimelines .phaseHdr{display:none!important}
   body.noTimelines .sInfo .body .topicGrid{margin-bottom:14px}
 
-  /* ── New Gb UI Off overrides ── */
-  body.gbOff .screen::before{background-image:none;background:#f0f4f8}
-  body.gbOff .screen{color:var(--text)}
-  body.gbOff .statusBar{color:#374151}
-  body.gbOff .glass{background:rgba(255,255,255,.92);border-color:#d1dae4;backdrop-filter:none;-webkit-backdrop-filter:none}
-  body.gbOff .s1 .appBanner .abTxt,body.gbOff .s1 .appBanner .abSub{color:var(--text)}
-  body.gbOff .s1 .title,body.gbOff .s1 .hello{color:var(--text)}
-  body.gbOff .s1 .metaRow,body.gbOff .s1 .host .name{color:#475569}
-  body.gbOff .s1 .card .lbl,body.gbOff .s1 .card .sub{color:#64748b}
-  body.gbOff .s1 .card .time{color:var(--text)}
-  body.gbOff .s1 .pill{color:#475569}body.gbOff .s1 .pill .em{color:var(--text)}
-  body.gbOff .s1 .cta .helper{color:#64748b}
-  body.gbOff .s2 h1,body.gbOff .s2 .lead,body.gbOff .s2 .card .cardTitle{color:var(--text)}
-  body.gbOff .s2 .lead,body.gbOff .s2 .card .cardTitle{color:#64748b}
-  body.gbOff .s2 .card{background:rgba(255,255,255,.85);border-color:#d1dae4}
+  /* ══════════════════════════════════════════════════════
+     New Gb UI OFF — matches current Touch Stay guidebook
+     Light bg · teal top bar · white cells · no blur/glass
+     ══════════════════════════════════════════════════════ */
+
+  /* Remove dark hero, use plain light bg for all screens */
+  body.gbOff .screen::before{background-image:none;background:#f2f2f2}
+  body.gbOff .screen{color:var(--text);background:#f2f2f2}
+  body.gbOff .statusBar{color:#374151;background:transparent}
+
+  /* ── Home screen (s1) ── */
+  /* Keep hero photo only on home — simulate old TS home */
+  body.gbOff .s1.screen::before{
+    background-image:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.55) 100%),var(--hero-img);
+    background-size:cover;background-position:center
+  }
+  body.gbOff .s1 .appBanner{display:none}
+  body.gbOff .s1 .hello{font-size:20px;font-weight:600;letter-spacing:0;margin:6px 0 0;color:rgba(255,255,255,.85)}
+  body.gbOff .s1 .heroText{text-align:center;padding:8px 20px 6px}
+  body.gbOff .s1 .title{font-size:22px;font-weight:700;text-align:center;color:#fff;margin-bottom:8px}
+  body.gbOff .s1 .metaRow{justify-content:center;color:rgba(255,255,255,.85);font-size:13px}
+  body.gbOff .s1 .metaRow .copyBtn{display:none}
+  body.gbOff .s1 .host{justify-content:center}
+  body.gbOff .s1 .host .avatar{width:52px;height:52px;border:2.5px solid #fff}
+  body.gbOff .s1 .host .name{color:#fff;font-size:14px;font-weight:600}
+  body.gbOff .s1 .body{flex:0 0 auto}
+  body.gbOff .s1 .infoCards{display:none}
+  body.gbOff .s1 .quickRow{display:none}
+  body.gbOff .s1 .cta{padding:8px 24px 20px}
+  body.gbOff .s1 .cta .primary{background:transparent;color:#fff;border:2.5px solid #fff;box-shadow:none;font-size:14px;letter-spacing:.5px;text-transform:uppercase}
+  body.gbOff .s1 .cta .helper{display:none}
+
+  /* ── Registration (s2) ── */
+  body.gbOff .s2.screen::before{background-image:none;background:#f2f2f2}
+  body.gbOff .s2 .head{background:var(--teal);padding:12px 20px}
+  body.gbOff .s2 .head .back{background:rgba(0,0,0,.15);border-color:rgba(0,0,0,.1);color:#fff}
+  body.gbOff .s2 .head .stepLbl{color:rgba(255,255,255,.85)}
+  body.gbOff .s2 .progress{background:rgba(0,0,0,.15);margin:0 20px 0}
+  body.gbOff .s2 .progress .bar{background:#fff}
+  body.gbOff .s2 h1{color:var(--text)}
+  body.gbOff .s2 .lead{color:#64748b}
+  body.gbOff .s2 .card{background:#fff;border-color:#e2e8f0;border-radius:12px}
+  body.gbOff .s2 .card .cardTitle{color:#94a3b8}
   body.gbOff .field label{color:var(--text)}
   body.gbOff .field input,body.gbOff .field select{background:#fff;border-color:#d1dae4;color:var(--text)}
   body.gbOff .divider{color:#94a3b8}
-  body.gbOff .socialBtn{background:#fff;border-color:#d1dae4;color:var(--text)}
-  body.gbOff .s3 .top .greet{color:#64748b}
-  body.gbOff .s3 .top .h{color:var(--text)}
-  body.gbOff .s3 .top .meta,body.gbOff .s3 .secTitle{color:#64748b}
-  body.gbOff .s3 .timeline .chip{background:#fff;border-color:#d1dae4;color:#475569}
-  body.gbOff .s3 .timeline .chip.active{background:var(--teal);color:var(--ink);border-color:var(--teal)}
-  body.gbOff .s3 .weatherCard,body.gbOff .s3 .listCard,body.gbOff .s3 .prep,body.gbOff .s3 .card2{background:#fff;border-color:#d1dae4;backdrop-filter:none;-webkit-backdrop-filter:none}
+  body.gbOff .socialBtn{background:#fff;border-color:#e2e8f0;color:var(--text);backdrop-filter:none}
+  body.gbOff .optRow .lbl .t{color:var(--text)}
+  body.gbOff .optRow .lbl .s{color:#64748b}
+  body.gbOff .s2 .footer{background:#f2f2f2;border-top:1px solid #e2e8f0}
+  body.gbOff .s2 .footer .primary{background:var(--teal);color:#fff;box-shadow:none}
+  body.gbOff .s2 .footer .ghost{border-color:#d1dae4;color:var(--text)}
+  body.gbOff .otherGuest{background:#fff;border-color:#e2e8f0}
+  body.gbOff .otherGuest .nm{color:var(--text)}
+  body.gbOff .addBtn{border-color:#d1dae4;color:#64748b}
+
+  /* ── Content screens (s3): Pre-arrival, Check-in, During Stay ── */
+  body.gbOff .s3.screen::before{background-image:none;background:#f2f2f2}
+  /* Teal top bar */
+  body.gbOff .s3 .top{background:var(--teal);padding:10px 20px 14px;margin-bottom:0}
+  body.gbOff .s3 .top .greet{color:rgba(255,255,255,.8);text-transform:none;font-size:12px}
+  body.gbOff .s3 .top .h{color:#fff;font-size:20px}
+  body.gbOff .s3 .top .h em{color:#fff;font-style:italic}
+  body.gbOff .s3 .top .meta{color:rgba(255,255,255,.8)}
+  body.gbOff .s3 .secTitle{color:#94a3b8}
+  /* White list cards */
+  body.gbOff .s3 .weatherCard,body.gbOff .s3 .listCard{background:#fff;border-color:#e8ecf0;border-radius:8px;backdrop-filter:none;-webkit-backdrop-filter:none}
+  body.gbOff .s3 .listRow{border-bottom-color:#f0f0f0}
+  body.gbOff .s3 .listRow .t{color:var(--text)}
+  body.gbOff .s3 .listRow .s{color:#94a3b8}
+  body.gbOff .s3 .listRow .arr{color:#cbd5e1}
+  body.gbOff .s3 .listRow .ic{background:rgba(62,217,204,.12)}
   body.gbOff .s3 .weatherCard .loc,body.gbOff .s3 .weatherCard .desc{color:#64748b}
   body.gbOff .s3 .weatherCard .temp{color:var(--text)}
-  body.gbOff .s3 .listRow .t{color:var(--text)}body.gbOff .s3 .listRow .s{color:#64748b}
-  body.gbOff .s3 .prep .t{color:var(--text)}body.gbOff .s3 .prep .s{color:#64748b}
-  body.gbOff .s3 .card2 .t{color:var(--text)}body.gbOff .s3 .card2 .m{color:#64748b}
-  body.gbOff .sInfo .iHead .iTitle{color:var(--text)}body.gbOff .sInfo .iHead .iSub{color:#64748b}
-  body.gbOff .sInfo .topic{background:#fff;border-color:#d1dae4;backdrop-filter:none}
-  body.gbOff .sInfo .topic .tLbl{color:var(--text)}body.gbOff .sInfo .topic .tSub{color:#64748b}
-  body.gbOff .sAI .aiHead .aiName{color:var(--text)}body.gbOff .sAI .aiHead .aiSub{color:#64748b}
-  body.gbOff .msg.ai .bubble{background:#fff;border-color:#d1dae4;color:var(--text);backdrop-filter:none}
-  body.gbOff .bottomNav{background:#f8fafc;border-top:1px solid #e2e8f0}
-  body.gbOff .bottomNav .nav{color:#94a3b8}
+  body.gbOff .s3 .weatherCard .day{background:#f8f8f8;border-color:#e8ecf0;color:var(--text)}
+  body.gbOff .s3 .prep{background:#fff;border-color:#e8ecf0;backdrop-filter:none;-webkit-backdrop-filter:none}
+  body.gbOff .s3 .prep .t{color:var(--text)}
+  body.gbOff .s3 .prep .s{color:#94a3b8}
+  body.gbOff .s3 .card2{background:#fff;border-color:#e8ecf0;backdrop-filter:none;-webkit-backdrop-filter:none}
+  body.gbOff .s3 .card2 .t{color:var(--text)}
+  body.gbOff .s3 .card2 .m{color:#94a3b8}
+
+  /* ── Info hub (sInfo) ── */
+  body.gbOff .sInfo.screen::before{background-image:none;background:#f2f2f2}
+  /* Teal top bar replacing iHead */
+  body.gbOff .sInfo .iHead{background:var(--teal);padding:12px 20px 14px}
+  body.gbOff .sInfo .iHead .iTitle{color:#fff;font-size:20px}
+  body.gbOff .sInfo .iHead .iSub{color:rgba(255,255,255,.8)}
+  /* Phase headers */
+  body.gbOff .sInfo .phaseHdr .badge{background:rgba(62,217,204,.15);border-color:rgba(62,217,204,.3);color:var(--teal-dark)}
+  /* Topic cells: flat white grid with dividers, no radius */
+  body.gbOff .sInfo .topicGrid{gap:0;border:1px solid #e8ecf0;border-radius:8px;overflow:hidden;margin-bottom:16px}
+  body.gbOff .sInfo .topic{background:#fff;border:0;border-right:1px solid #e8ecf0;border-bottom:1px solid #e8ecf0;border-radius:0;padding:16px 10px;backdrop-filter:none;gap:8px}
+  body.gbOff .sInfo .topic:nth-child(even){border-right:0}
+  body.gbOff .sInfo .topic:nth-last-child(-n+2){border-bottom:0}
+  body.gbOff .sInfo .topic .tIco{color:var(--teal)}
+  body.gbOff .sInfo .topic .tLbl{color:#1a3a52;font-size:12px}
+  body.gbOff .sInfo .topic .tSub{display:none}
+
+  /* ── AI Assistant (sAI) ── */
+  body.gbOff .sAI.screen::before{background-image:none;background:#f2f2f2}
+  body.gbOff .sAI .aiHead{background:var(--teal);padding:14px 20px 16px}
+  body.gbOff .sAI .aiHead .aiAv{background:rgba(255,255,255,.25)}
+  body.gbOff .sAI .aiHead .aiName{color:#fff;font-size:17px}
+  body.gbOff .sAI .aiHead .aiSub{color:rgba(255,255,255,.8)}
+  body.gbOff .sAI .aiHead .exportBtn{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);color:#fff}
+  /* Chat area: white bubbles */
+  body.gbOff .msg.ai .bubble{background:#fff;border-color:#e2e8f0;color:var(--text);backdrop-filter:none;-webkit-backdrop-filter:none}
+  body.gbOff .msg .ts{color:#94a3b8}
+  body.gbOff .sAI .suggestRow .suggest{background:#fff;border-color:#e2e8f0;color:#475569}
+  body.gbOff .sAI .chatInput textarea{background:#fff;border-color:#e2e8f0;color:var(--text)}
+  body.gbOff .sAI .chatInput textarea::placeholder{color:#94a3b8}
+  body.gbOff .sAI .chatInput{background:#f2f2f2}
+
+  /* ── Bottom nav — dark navy, matches old TS ── */
+  body.gbOff .bottomNav{background:#1a2b3c;border-top:0}
+  body.gbOff .bottomNav .nav{color:rgba(255,255,255,.45)}
   body.gbOff .bottomNav .nav.active{color:var(--teal)}
 </style>
 </head>

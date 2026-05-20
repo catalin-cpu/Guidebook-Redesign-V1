@@ -222,6 +222,53 @@
   .hide{display:none!important}
   @media(max-width:900px){.stage{gap:16px}.phone{width:360px;height:760px}}
   @media(max-width:420px){body{padding:10px 0 56px}.phone{width:100vw;max-width:100%;height:100vh;border-radius:0;padding:0;box-shadow:none}.phone::before{display:none}.screen{border-radius:0}}
+
+  /* ── Demo case panel ── */
+  .casePanel{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:200;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:10px 8px;display:flex;flex-direction:column;gap:3px;box-shadow:0 8px 28px rgba(0,0,0,.13);min-width:148px}
+  .casePanel .cpTitle{font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.7px;padding:2px 8px 8px;border-bottom:1px solid #e2e8f0;margin-bottom:2px;white-space:nowrap}
+  .casePanel .cpDivider{height:1px;background:#e2e8f0;margin:4px 2px}
+  .casePanel .cpBtn{appearance:none;border:0;background:transparent;text-align:left;padding:8px 10px;font-size:12.5px;font-weight:600;color:#475569;border-radius:9px;cursor:pointer;white-space:nowrap;width:100%}
+  .casePanel .cpBtn:hover{background:#f1f5f9}
+  .casePanel .cpBtn.active{background:var(--ink);color:#fff}
+
+  /* ── New Gb UI Off overrides ── */
+  body.gbOff .screen::before{background-image:none;background:#f0f4f8}
+  body.gbOff .screen{color:var(--text)}
+  body.gbOff .statusBar{color:#374151}
+  body.gbOff .glass{background:rgba(255,255,255,.92);border-color:#d1dae4;backdrop-filter:none;-webkit-backdrop-filter:none}
+  body.gbOff .s1 .appBanner .abTxt,body.gbOff .s1 .appBanner .abSub{color:var(--text)}
+  body.gbOff .s1 .title,body.gbOff .s1 .hello{color:var(--text)}
+  body.gbOff .s1 .metaRow,body.gbOff .s1 .host .name{color:#475569}
+  body.gbOff .s1 .card .lbl,body.gbOff .s1 .card .sub{color:#64748b}
+  body.gbOff .s1 .card .time{color:var(--text)}
+  body.gbOff .s1 .pill{color:#475569}body.gbOff .s1 .pill .em{color:var(--text)}
+  body.gbOff .s1 .cta .helper{color:#64748b}
+  body.gbOff .s2 h1,body.gbOff .s2 .lead,body.gbOff .s2 .card .cardTitle{color:var(--text)}
+  body.gbOff .s2 .lead,body.gbOff .s2 .card .cardTitle{color:#64748b}
+  body.gbOff .s2 .card{background:rgba(255,255,255,.85);border-color:#d1dae4}
+  body.gbOff .field label{color:var(--text)}
+  body.gbOff .field input,body.gbOff .field select{background:#fff;border-color:#d1dae4;color:var(--text)}
+  body.gbOff .divider{color:#94a3b8}
+  body.gbOff .socialBtn{background:#fff;border-color:#d1dae4;color:var(--text)}
+  body.gbOff .s3 .top .greet{color:#64748b}
+  body.gbOff .s3 .top .h{color:var(--text)}
+  body.gbOff .s3 .top .meta,body.gbOff .s3 .secTitle{color:#64748b}
+  body.gbOff .s3 .timeline .chip{background:#fff;border-color:#d1dae4;color:#475569}
+  body.gbOff .s3 .timeline .chip.active{background:var(--teal);color:var(--ink);border-color:var(--teal)}
+  body.gbOff .s3 .weatherCard,body.gbOff .s3 .listCard,body.gbOff .s3 .prep,body.gbOff .s3 .card2{background:#fff;border-color:#d1dae4;backdrop-filter:none;-webkit-backdrop-filter:none}
+  body.gbOff .s3 .weatherCard .loc,body.gbOff .s3 .weatherCard .desc{color:#64748b}
+  body.gbOff .s3 .weatherCard .temp{color:var(--text)}
+  body.gbOff .s3 .listRow .t{color:var(--text)}body.gbOff .s3 .listRow .s{color:#64748b}
+  body.gbOff .s3 .prep .t{color:var(--text)}body.gbOff .s3 .prep .s{color:#64748b}
+  body.gbOff .s3 .card2 .t{color:var(--text)}body.gbOff .s3 .card2 .m{color:#64748b}
+  body.gbOff .sInfo .iHead .iTitle{color:var(--text)}body.gbOff .sInfo .iHead .iSub{color:#64748b}
+  body.gbOff .sInfo .topic{background:#fff;border-color:#d1dae4;backdrop-filter:none}
+  body.gbOff .sInfo .topic .tLbl{color:var(--text)}body.gbOff .sInfo .topic .tSub{color:#64748b}
+  body.gbOff .sAI .aiHead .aiName{color:var(--text)}body.gbOff .sAI .aiHead .aiSub{color:#64748b}
+  body.gbOff .msg.ai .bubble{background:#fff;border-color:#d1dae4;color:var(--text);backdrop-filter:none}
+  body.gbOff .bottomNav{background:#f8fafc;border-top:1px solid #e2e8f0}
+  body.gbOff .bottomNav .nav{color:#94a3b8}
+  body.gbOff .bottomNav .nav.active{color:var(--teal)}
 </style>
 </head>
 <body>
@@ -701,6 +748,16 @@
 
 </div><!-- /stage -->
 
+<!-- ── Demo case switcher ── -->
+<div class="casePanel" id="casePanel">
+  <div class="cpTitle">Demo cases</div>
+  <button class="cpBtn active" data-case="tl-on"  onclick="setCase('tl-on')">⏱ Timelines On</button>
+  <button class="cpBtn"        data-case="tl-off" onclick="setCase('tl-off')">✕ Timelines Off</button>
+  <div class="cpDivider"></div>
+  <button class="cpBtn"        data-case="gb-on"  onclick="setCase('gb-on')">✦ New Gb UI On</button>
+  <button class="cpBtn"        data-case="gb-off" onclick="setCase('gb-off')">○ New Gb UI Off</button>
+</div>
+
 <script>
   // ── Screen switcher ──
   const switcher = document.getElementById('switcher');
@@ -903,6 +960,31 @@ Powered by Touch Stay · www.touchstay.com
       const p=e.target.closest('.prep'); if(p) p.classList.toggle('done');
     });
   });
+
+  // ── Demo case switcher ──
+  // track independently so mixed states work
+  let caseTimelines = true;  // true = on
+  let caseNewGb     = true;  // true = on
+
+  function setCase(c){
+    if(c==='tl-on')  caseTimelines = true;
+    if(c==='tl-off') caseTimelines = false;
+    if(c==='gb-on')  caseNewGb = true;
+    if(c==='gb-off') caseNewGb = false;
+
+    // highlight active button(s)
+    document.querySelectorAll('.cpBtn').forEach(b=>b.classList.remove('active'));
+    document.querySelector(`.cpBtn[data-case="${c}"]`).classList.add('active');
+
+    // apply timelines
+    document.querySelectorAll('.s3 .timeline').forEach(t=>{
+      t.style.display = caseTimelines ? '' : 'none';
+    });
+
+    // apply UI mode
+    document.body.classList.toggle('gbOff', !caseNewGb);
+  }
+  window.setCase = setCase;
 </script>
 </body>
 </html>

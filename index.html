@@ -224,12 +224,14 @@
   @media(max-width:420px){body{padding:10px 0 56px}.phone{width:100vw;max-width:100%;height:100vh;border-radius:0;padding:0;box-shadow:none}.phone::before{display:none}.screen{border-radius:0}}
 
   /* ── Demo case panel ── */
-  .casePanel{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:200;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:10px 8px;display:flex;flex-direction:column;gap:3px;box-shadow:0 8px 28px rgba(0,0,0,.13);min-width:148px}
-  .casePanel .cpTitle{font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.7px;padding:2px 8px 8px;border-bottom:1px solid #e2e8f0;margin-bottom:2px;white-space:nowrap}
-  .casePanel .cpDivider{height:1px;background:#e2e8f0;margin:4px 2px}
-  .casePanel .cpBtn{appearance:none;border:0;background:transparent;text-align:left;padding:8px 10px;font-size:12.5px;font-weight:600;color:#475569;border-radius:9px;cursor:pointer;white-space:nowrap;width:100%}
+  .casePanel{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:200;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:10px 8px;display:flex;flex-direction:column;gap:6px;box-shadow:0 8px 28px rgba(0,0,0,.13);min-width:148px}
+  .casePanel .cpTitle{font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:.7px;padding:2px 8px 6px;border-bottom:1px solid #e2e8f0;white-space:nowrap}
+  .casePanel .cpRow{display:flex;gap:6px}
+  .casePanel .cpBtn{appearance:none;border:1px solid #e2e8f0;background:#f8fafc;text-align:center;padding:10px 8px;font-size:12px;font-weight:700;color:#475569;border-radius:10px;cursor:pointer;flex:1;line-height:1.4}
+  .casePanel .cpBtn span{display:block;font-size:10px;font-weight:500;color:#94a3b8;margin-top:2px}
   .casePanel .cpBtn:hover{background:#f1f5f9}
-  .casePanel .cpBtn.active{background:var(--ink);color:#fff}
+  .casePanel .cpBtn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .casePanel .cpBtn.active span{color:rgba(255,255,255,.6)}
 
   /* ── No-timelines Info mode: hide phase headers, flat topic list ── */
   body.noTimelines .phaseHdr{display:none!important}
@@ -754,12 +756,11 @@
 
 <!-- ── Demo case switcher ── -->
 <div class="casePanel" id="casePanel">
-  <div class="cpTitle">Demo cases</div>
-  <button class="cpBtn active" data-case="tl-on"  onclick="setCase('tl-on')">⏱ Timelines On</button>
-  <button class="cpBtn"        data-case="tl-off" onclick="setCase('tl-off')">✕ Timelines Off</button>
-  <div class="cpDivider"></div>
-  <button class="cpBtn"        data-case="gb-on"  onclick="setCase('gb-on')">✦ New Gb UI On</button>
-  <button class="cpBtn"        data-case="gb-off" onclick="setCase('gb-off')">○ New Gb UI Off</button>
+  <div class="cpTitle">Demo mode</div>
+  <div class="cpRow">
+    <button class="cpBtn active" data-case="on"  onclick="setCase('on')">⏱ Timelines On<br><span>+ New Gb UI</span></button>
+    <button class="cpBtn"        data-case="off" onclick="setCase('off')">✕ Timelines Off<br><span>+ Old Gb UI</span></button>
+  </div>
 </div>
 
 <script>
@@ -970,25 +971,18 @@ Powered by Touch Stay · www.touchstay.com
   let caseNewGb     = true;
 
   function setCase(c){
-    // On/Off are paired — both switchers always move together
-    const isOn = (c==='tl-on' || c==='gb-on');
+    const isOn = c === 'on';
     caseTimelines = isOn;
     caseNewGb     = isOn;
 
-    // highlight both paired buttons
     document.querySelectorAll('.cpBtn').forEach(b=>b.classList.remove('active'));
-    document.querySelector('.cpBtn[data-case="tl-'+(isOn?'on':'off')+'"]').classList.add('active');
-    document.querySelector('.cpBtn[data-case="gb-'+(isOn?'on':'off')+'"]').classList.add('active');
+    document.querySelector(`.cpBtn[data-case="${c}"]`).classList.add('active');
 
-    // show/hide timeline chips
     document.querySelectorAll('.s3 .timeline').forEach(t=>{
       t.style.display = isOn ? '' : 'none';
     });
 
-    // dark glass UI
     document.body.classList.toggle('gbOff', !isOn);
-
-    // flat info + post-reg redirect when off
     document.body.classList.toggle('noTimelines', !isOn);
   }
 

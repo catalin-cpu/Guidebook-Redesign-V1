@@ -231,6 +231,10 @@
   .casePanel .cpBtn:hover{background:#f1f5f9}
   .casePanel .cpBtn.active{background:var(--ink);color:#fff}
 
+  /* ── No-timelines Info mode: hide phase headers, flat topic list ── */
+  body.noTimelines .phaseHdr{display:none!important}
+  body.noTimelines .sInfo .body .topicGrid{margin-bottom:14px}
+
   /* ── New Gb UI Off overrides ── */
   body.gbOff .screen::before{background-image:none;background:#f0f4f8}
   body.gbOff .screen{color:var(--text)}
@@ -405,7 +409,7 @@
         </div>
       </div>
       <div class="footer">
-        <button class="primary" onclick="show(3)">Continue →</button>
+        <button class="primary" onclick="continueFromReg()">Continue →</button>
       </div>
     </div>
 
@@ -962,9 +966,8 @@ Powered by Touch Stay · www.touchstay.com
   });
 
   // ── Demo case switcher ──
-  // track independently so mixed states work
-  let caseTimelines = true;  // true = on
-  let caseNewGb     = true;  // true = on
+  let caseTimelines = true;
+  let caseNewGb     = true;
 
   function setCase(c){
     if(c==='tl-on')  caseTimelines = true;
@@ -972,19 +975,29 @@ Powered by Touch Stay · www.touchstay.com
     if(c==='gb-on')  caseNewGb = true;
     if(c==='gb-off') caseNewGb = false;
 
-    // highlight active button(s)
+    // highlight active button
     document.querySelectorAll('.cpBtn').forEach(b=>b.classList.remove('active'));
     document.querySelector(`.cpBtn[data-case="${c}"]`).classList.add('active');
 
-    // apply timelines
+    // show/hide timeline chips
     document.querySelectorAll('.s3 .timeline').forEach(t=>{
       t.style.display = caseTimelines ? '' : 'none';
     });
 
-    // apply UI mode
+    // dark glass UI
     document.body.classList.toggle('gbOff', !caseNewGb);
+
+    // flat info + post-reg redirect when either is off
+    document.body.classList.toggle('noTimelines', !caseTimelines || !caseNewGb);
   }
+
+  // post-registration routing depends on active case
+  function continueFromReg(){
+    (!caseTimelines || !caseNewGb) ? show(6) : show(3);
+  }
+
   window.setCase = setCase;
+  window.continueFromReg = continueFromReg;
 </script>
 </body>
 </html>

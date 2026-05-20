@@ -322,11 +322,10 @@
           <div class="field" style="margin-bottom:12px">
             <label>Purpose of trip</label>
             <div style="display:flex;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.22)">
-              <button id="leisBtn" onclick="setTrip('leisure')" style="flex:1;appearance:none;border:0;background:rgba(255,255,255,.07);color:#cbd9e6;font-size:13px;font-weight:700;padding:10px 0;cursor:pointer">🌴 Leisure</button>
-              <button id="bothBtn" onclick="setTrip('both')" style="flex:1;appearance:none;border:0;background:var(--teal);color:var(--ink);font-size:13px;font-weight:700;padding:10px 0;cursor:pointer">👥 Both</button>
+              <button id="leisBtn" onclick="setTrip('leisure')" style="flex:1;appearance:none;border:0;background:var(--teal);color:var(--ink);font-size:13px;font-weight:700;padding:10px 0;cursor:pointer">🌴 Leisure</button>
               <button id="bizBtn" onclick="setTrip('business')" style="flex:1;appearance:none;border:0;background:rgba(255,255,255,.07);color:#cbd9e6;font-size:13px;font-weight:700;padding:10px 0;cursor:pointer">💼 Business</button>
             </div>
-            <div style="font-size:11px;color:#7a96b0;margin-top:5px">When "Both" is selected, During Stay shows separate views for each type.</div>
+            <div style="font-size:11px;color:#7a96b0;margin-top:5px">During Stay will show content tailored to your trip type.</div>
           </div>
           <div class="row2">
             <div class="field"><label>Arrival</label><input id="f_arrival" type="date" value="2026-12-02"></div>
@@ -508,12 +507,7 @@
       <div class="chip"><span class="dot"></span>Check-out</div>
       <div class="chip"><span class="dot"></span>Post-stay</div>
     </div>
-    <!-- Both sub-tabs (shown only when tripType==='both') -->
-    <div id="bothTabs" class="hide" style="display:none;gap:0;margin:0 20px 4px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.22);flex-shrink:0">
-      <button id="tabLeis" onclick="switchDuringTab('leisure')" style="flex:1;appearance:none;border:0;background:var(--teal);color:var(--ink);font-size:13px;font-weight:700;padding:9px 0;cursor:pointer">🌴 Leisure</button>
-      <button id="tabBiz" onclick="switchDuringTab('business')" style="flex:1;appearance:none;border:0;background:rgba(255,255,255,.07);color:#cbd9e6;font-size:13px;font-weight:700;padding:9px 0;cursor:pointer">💼 Business</button>
-    </div>
-    <!-- Leisure/Vacation content -->
+    <!-- Leisure content -->
     <div id="vacContent" class="body">
       <div class="secTitle">Featured experiences via Viator</div>
       <div class="hScroll">
@@ -725,51 +719,24 @@
   });
   window.show=show;
 
-  // ── Trip type (leisure / both / business) ──
-  let tripType='both';
+  // ── Trip type (leisure / business) ──
+  let tripType='leisure';
   function setTrip(t){
     tripType=t;
     const lb=document.getElementById('leisBtn');
-    const bb=document.getElementById('bothBtn');
     const bz=document.getElementById('bizBtn');
-    // update inline-styled registration buttons directly
     lb.style.background = t==='leisure'  ? 'var(--teal)' : 'rgba(255,255,255,.07)';
     lb.style.color      = t==='leisure'  ? 'var(--ink)'  : '#cbd9e6';
-    bb.style.background = t==='both'     ? 'var(--teal)' : 'rgba(255,255,255,.07)';
-    bb.style.color      = t==='both'     ? 'var(--ink)'  : '#cbd9e6';
     bz.style.background = t==='business' ? 'var(--teal)' : 'rgba(255,255,255,.07)';
     bz.style.color      = t==='business' ? 'var(--ink)'  : '#cbd9e6';
-    // During Stay: show/hide sub-tabs and content
-    const bothTabs = document.getElementById('bothTabs');
-    const vc = document.getElementById('vacContent');
-    const bc = document.getElementById('bizContent');
-    if(t==='both'){
-      bothTabs.style.display='flex';
-      bothTabs.classList.remove('hide');
-      // default to leisure tab
-      switchDuringTab('leisure');
-    } else {
-      bothTabs.style.display='none';
-      bothTabs.classList.add('hide');
-      vc.classList.toggle('hide', t!=='leisure');
-      bc.classList.toggle('hide', t!=='business');
-    }
+    document.getElementById('vacContent').classList.toggle('hide', t!=='leisure');
+    document.getElementById('bizContent').classList.toggle('hide', t!=='business');
     document.getElementById('duringTitle').innerHTML =
       t==='business' ? 'Work smart, <em>then unwind.</em>' : 'Make the most of <em>Springfield.</em>';
     document.getElementById('duringGreet').textContent =
       t==='business' ? 'Business Stay · Day 3 of 8' : 'During Stay · Day 3 of 8';
   }
-  function switchDuringTab(tab){
-    const tl=document.getElementById('tabLeis');
-    const tb=document.getElementById('tabBiz');
-    tl.style.background = tab==='leisure'  ? 'var(--teal)' : 'rgba(255,255,255,.07)';
-    tl.style.color      = tab==='leisure'  ? 'var(--ink)'  : '#cbd9e6';
-    tb.style.background = tab==='business' ? 'var(--teal)' : 'rgba(255,255,255,.07)';
-    tb.style.color      = tab==='business' ? 'var(--ink)'  : '#cbd9e6';
-    document.getElementById('vacContent').classList.toggle('hide', tab!=='leisure');
-    document.getElementById('bizContent').classList.toggle('hide', tab!=='business');
-  }
-  window.setTrip=setTrip; window.switchDuringTab=switchDuringTab;
+  window.setTrip=setTrip;
 
   // ── OTA toggle ──
   document.getElementById('otaToggle').addEventListener('change',e=>{

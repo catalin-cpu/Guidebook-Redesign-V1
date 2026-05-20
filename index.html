@@ -970,25 +970,26 @@ Powered by Touch Stay · www.touchstay.com
   let caseNewGb     = true;
 
   function setCase(c){
-    if(c==='tl-on')  caseTimelines = true;
-    if(c==='tl-off') caseTimelines = false;
-    if(c==='gb-on')  caseNewGb = true;
-    if(c==='gb-off') caseNewGb = false;
+    // On/Off are paired — both switchers always move together
+    const isOn = (c==='tl-on' || c==='gb-on');
+    caseTimelines = isOn;
+    caseNewGb     = isOn;
 
-    // highlight active button
+    // highlight both paired buttons
     document.querySelectorAll('.cpBtn').forEach(b=>b.classList.remove('active'));
-    document.querySelector(`.cpBtn[data-case="${c}"]`).classList.add('active');
+    document.querySelector('.cpBtn[data-case="tl-'+(isOn?'on':'off')+'"]').classList.add('active');
+    document.querySelector('.cpBtn[data-case="gb-'+(isOn?'on':'off')+'"]').classList.add('active');
 
     // show/hide timeline chips
     document.querySelectorAll('.s3 .timeline').forEach(t=>{
-      t.style.display = caseTimelines ? '' : 'none';
+      t.style.display = isOn ? '' : 'none';
     });
 
     // dark glass UI
-    document.body.classList.toggle('gbOff', !caseNewGb);
+    document.body.classList.toggle('gbOff', !isOn);
 
-    // flat info + post-reg redirect when either is off
-    document.body.classList.toggle('noTimelines', !caseTimelines || !caseNewGb);
+    // flat info + post-reg redirect when off
+    document.body.classList.toggle('noTimelines', !isOn);
   }
 
   // post-registration routing depends on active case
